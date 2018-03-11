@@ -4,7 +4,7 @@ describe('doublemaker tests', () => {
 	it('should return multiple values', async () => {
 		const values = [false, 'Hello', {value: 'This is my object'}]; 
 
-		const maker = doublemaker(values);
+		const maker = doublemaker.asyncMultiValueStub(values);
 
 		const result2 = await maker();
 		const result3 = await maker();
@@ -16,7 +16,7 @@ describe('doublemaker tests', () => {
 	it('should return 5 values when given 5 values', async () => {
 		const values = [1, 2, 3, true, {}];
 
-		const maker = doublemaker(values);
+		const maker = doublemaker.asyncMultiValueStub(values);
 
 		const result1 = await maker();
 		const result2 = await maker();

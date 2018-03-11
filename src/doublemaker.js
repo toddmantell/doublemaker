@@ -1,13 +1,5 @@
-export default (stubValues: Array<mixed>): Function => {
-	const iterator = returnMultipleValuesEachWrappedInPromise(stubValues);
+import asyncMultiValueStub from './asyncMultiValueStub';
 
-	return function () {
-		return iterator.next().value;
-	}
+export default {
+	asyncMultiValueStub
 };
-
-function* returnMultipleValuesEachWrappedInPromise(arrayOfValues: Array<mixed>): Iterator {
-	for (const item of arrayOfValues) {
-		yield Promise.resolve(item);
-	}
-}
